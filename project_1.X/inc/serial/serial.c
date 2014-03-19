@@ -33,3 +33,28 @@ char serial_getc()
   while(!U1STAbits.URXDA);         // wait until character is ready
   return U1RXREG;
 }
+
+
+void serial_putint(int x)
+{
+    char array[5];
+    int i=0;
+
+    if(x==0)
+    {
+        serial_putc('0');
+    }
+
+    while(x>0)
+    {
+        array[i] = (char)(x%10 + '0');
+        x/=10;
+        i++;
+
+    }
+    while(i>0)
+    {
+        serial_putc( array[--i] );
+    }
+
+}

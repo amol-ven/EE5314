@@ -9,10 +9,14 @@
 #include <p33FJ128MC802.h>
 #include "config.h"
 #include "inc/serial/serial.h"
+#include "inc/string_utilities/string_utilities.h"
 
 extern void _delay_ms(unsigned int);
 #define BUFF_LENGTH 100
 char buffer[BUFF_LENGTH];
+
+#define ELEMENT_LENGTH 10
+char element[ELEMENT_LENGTH];
 
 void init_hw(void)
 {
@@ -36,6 +40,7 @@ void startup_flash(void)
      LATBbits.LATB4 = 0;
 }
 
+
 int main(void)
 {
     pll_config();
@@ -48,6 +53,7 @@ int main(void)
     
     while(1)
     {
+        
         buffer[buffer_index] = serial_getc();
         serial_putc(buffer[buffer_index]);
         if(buffer[buffer_index] == '\b')                 //check for backspace character
@@ -68,12 +74,35 @@ int main(void)
 
         if(command_rcvd == 1)
         {
+            replace_non_alphanumeric(buffer, BUFF_LENGTH, '\0');
+
             serial_puts("\n\rCommand Received: ");
             serial_puts(buffer);
             serial_puts("\n\r");
+
+            getElement(buffer, element, RESET, BUFF_LENGTH);
+            serial_puts("\n\rELEMENT1: ");
+            serial_puts(element);
+            serial_puts("\n\r");
+
+            getElement(buffer, element, NEXT, BUFF_LENGTH);
+            serial_puts("\n\rELEMENT2: ");
+            serial_puts(element);
+            serial_puts("\n\r");
+
+
+
+
+
+            while(buffer_index>=0)
+            {
+                buffer[buffer_index--]='\0';
+            }
             command_rcvd = 0;
             buffer_index = -1;
         }
+
+
         buffer_index++;
         if(buffer_index >= BUFF_LENGTH)
         {

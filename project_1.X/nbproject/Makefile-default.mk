@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=newmainXC16.c delays.s inc/serial/serial.c
+SOURCEFILES_QUOTED_IF_SPACED=newmainXC16.c delays.s inc/serial/serial.c inc/string_utilities/string_utilities.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmainXC16.o ${OBJECTDIR}/delays.o ${OBJECTDIR}/inc/serial/serial.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/newmainXC16.o.d ${OBJECTDIR}/delays.o.d ${OBJECTDIR}/inc/serial/serial.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newmainXC16.o ${OBJECTDIR}/delays.o ${OBJECTDIR}/inc/serial/serial.o ${OBJECTDIR}/inc/string_utilities/string_utilities.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/newmainXC16.o.d ${OBJECTDIR}/delays.o.d ${OBJECTDIR}/inc/serial/serial.o.d ${OBJECTDIR}/inc/string_utilities/string_utilities.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/newmainXC16.o ${OBJECTDIR}/delays.o ${OBJECTDIR}/inc/serial/serial.o
+OBJECTFILES=${OBJECTDIR}/newmainXC16.o ${OBJECTDIR}/delays.o ${OBJECTDIR}/inc/serial/serial.o ${OBJECTDIR}/inc/string_utilities/string_utilities.o
 
 # Source Files
-SOURCEFILES=newmainXC16.c delays.s inc/serial/serial.c
+SOURCEFILES=newmainXC16.c delays.s inc/serial/serial.c inc/string_utilities/string_utilities.c
 
 
 CFLAGS=
@@ -93,6 +93,13 @@ ${OBJECTDIR}/inc/serial/serial.o: inc/serial/serial.c  nbproject/Makefile-${CND_
 	${MP_CC} $(MP_EXTRA_CC_PRE)  inc/serial/serial.c  -o ${OBJECTDIR}/inc/serial/serial.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/inc/serial/serial.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/inc/serial/serial.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/inc/string_utilities/string_utilities.o: inc/string_utilities/string_utilities.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/inc/string_utilities 
+	@${RM} ${OBJECTDIR}/inc/string_utilities/string_utilities.o.d 
+	@${RM} ${OBJECTDIR}/inc/string_utilities/string_utilities.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  inc/string_utilities/string_utilities.c  -o ${OBJECTDIR}/inc/string_utilities/string_utilities.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/inc/string_utilities/string_utilities.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/inc/string_utilities/string_utilities.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/newmainXC16.o: newmainXC16.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
@@ -107,6 +114,13 @@ ${OBJECTDIR}/inc/serial/serial.o: inc/serial/serial.c  nbproject/Makefile-${CND_
 	@${RM} ${OBJECTDIR}/inc/serial/serial.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  inc/serial/serial.c  -o ${OBJECTDIR}/inc/serial/serial.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/inc/serial/serial.o.d"      -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/inc/serial/serial.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/inc/string_utilities/string_utilities.o: inc/string_utilities/string_utilities.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/inc/string_utilities 
+	@${RM} ${OBJECTDIR}/inc/string_utilities/string_utilities.o.d 
+	@${RM} ${OBJECTDIR}/inc/string_utilities/string_utilities.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  inc/string_utilities/string_utilities.c  -o ${OBJECTDIR}/inc/string_utilities/string_utilities.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/inc/string_utilities/string_utilities.o.d"      -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/inc/string_utilities/string_utilities.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

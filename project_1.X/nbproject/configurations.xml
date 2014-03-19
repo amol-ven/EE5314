@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>config.h</itemPath>
       <itemPath>inc/serial/serial.h</itemPath>
+      <itemPath>inc/string_utilities/string_utilities.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -18,6 +19,7 @@
       <itemPath>newmainXC16.c</itemPath>
       <itemPath>delays.s</itemPath>
       <itemPath>inc/serial/serial.c</itemPath>
+      <itemPath>inc/string_utilities/string_utilities.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -28,6 +30,7 @@
   <sourceRootList>
     <Elem>/opt/microchip/xc16/v1.21/support/dsPIC33F/gld</Elem>
     <Elem>inc/serial</Elem>
+    <Elem>inc/string_utilities</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

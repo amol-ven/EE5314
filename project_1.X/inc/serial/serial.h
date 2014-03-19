@@ -11,7 +11,7 @@ void serial_puts(char *str);
 
 char serial_getc();
 
-
+void serial_putint(int x);
 
 
 
