@@ -61,10 +61,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x98            0xe4  (228)
 .const                       0x298                0x32            0x4b  (75)
-.text                        0x2ca               0x2da           0x447  (1095)
-.dinit                       0x5a4                 0xe            0x15  (21)
+.text                        0x2ca               0x31a           0x4a7  (1191)
+.dinit                       0x5e4                 0x8             0xc  (12)
 
-                     Total program memory used (bytes):          0x58b  (1419) 1%
+                     Total program memory used (bytes):          0x5e2  (1506) 1%
 
 
 Data Memory  [Origin = 0x800, Length = 0x4000]
@@ -107,35 +107,35 @@ External Symbols in Program Memory (by address):
                   0x0002e8                  _pll_config
                   0x0002f6                  _startup_flash
                   0x000304                  _main
-                  0x0003d4                  _replace_non_alphanumeric
-                  0x00044e                  _getElement
-                  0x0004c8                  _serial_init
-                  0x0004dc                  _serial_putc
-                  0x0004f4                  _serial_puts
-                  0x000510                  _serial_getc
-                  0x000532                  _serial_putint
-                  0x000586                  __delay_us
-                  0x000596                  __delay_ms
+                  0x000406                  _replace_non_alphanumeric
+                  0x000480                  _getElement
+                  0x000508                  _serial_init
+                  0x00051c                  _serial_putc
+                  0x000534                  _serial_puts
+                  0x000550                  _serial_getc
+                  0x000572                  _serial_putint
+                  0x0005c6                  __delay_us
+                  0x0005d6                  __delay_ms
 
 External Symbols in Program Memory (by name):
 
                   0x000294                  __DefaultInterrupt
                   0x000236                  __data_init
                   0x000236                  __data_init_standard
-                  0x000596                  __delay_ms
-                  0x000586                  __delay_us
+                  0x0005d6                  __delay_ms
+                  0x0005c6                  __delay_us
                   0x000226                  __psv_init
                   0x000200                  __resetPRI
-                  0x00044e                  _getElement
+                  0x000480                  _getElement
                   0x0002ca                  _init_hw
                   0x000304                  _main
                   0x0002e8                  _pll_config
-                  0x0003d4                  _replace_non_alphanumeric
-                  0x000510                  _serial_getc
-                  0x0004c8                  _serial_init
-                  0x0004dc                  _serial_putc
-                  0x000532                  _serial_putint
-                  0x0004f4                  _serial_puts
+                  0x000406                  _replace_non_alphanumeric
+                  0x000550                  _serial_getc
+                  0x000508                  _serial_init
+                  0x00051c                  _serial_putc
+                  0x000572                  _serial_putint
+                  0x000534                  _serial_puts
                   0x0002f6                  _startup_flash
 
 Memory Configuration
@@ -258,27 +258,27 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000        0xf5a
+.debug_info       0x000000        0xfcf
  *(.debug_info)
- .debug_info      0x000000        0x854 build/default/production/newmainXC16.o
- .debug_info      0x000854         0xb6 build/default/production/delays.o
- .debug_info      0x00090a        0x46e build/default/production/inc/serial/serial.o
- .debug_info      0x000d78        0x1e2 build/default/production/inc/string_utilities/string_utilities.o
+ .debug_info      0x000000        0x851 build/default/production/newmainXC16.o
+ .debug_info      0x000851         0xbd build/default/production/delays.o
+ .debug_info      0x00090e        0x475 build/default/production/inc/serial/serial.o
+ .debug_info      0x000d83        0x24c build/default/production/inc/string_utilities/string_utilities.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x2b5
+.debug_abbrev     0x000000        0x2c2
  *(.debug_abbrev)
- .debug_abbrev    0x000000        0x127 build/default/production/newmainXC16.o
- .debug_abbrev    0x000127         0x14 build/default/production/delays.o
- .debug_abbrev    0x00013b        0x108 build/default/production/inc/serial/serial.o
- .debug_abbrev    0x000243         0x72 build/default/production/inc/string_utilities/string_utilities.o
+ .debug_abbrev    0x000000        0x10d build/default/production/newmainXC16.o
+ .debug_abbrev    0x00010d         0x14 build/default/production/delays.o
+ .debug_abbrev    0x000121        0x108 build/default/production/inc/serial/serial.o
+ .debug_abbrev    0x000229         0x99 build/default/production/inc/string_utilities/string_utilities.o
 
-.debug_line       0x000000        0x5a5
+.debug_line       0x000000        0x5cb
  *(.debug_line)
- .debug_line      0x000000        0x26d build/default/production/newmainXC16.o
- .debug_line      0x00026d         0x40 build/default/production/delays.o
- .debug_line      0x0002ad        0x1c3 build/default/production/inc/serial/serial.o
- .debug_line      0x000470        0x135 build/default/production/inc/string_utilities/string_utilities.o
+ .debug_line      0x000000        0x285 build/default/production/newmainXC16.o
+ .debug_line      0x000285         0x40 build/default/production/delays.o
+ .debug_line      0x0002c5        0x1c3 build/default/production/inc/serial/serial.o
+ .debug_line      0x000488        0x143 build/default/production/inc/string_utilities/string_utilities.o
 
 .debug_frame      0x000000         0xec
  *(.debug_frame)
@@ -301,11 +301,11 @@ __FUID3
                   0x000000        0x101
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x5f build/default/production/newmainXC16.o
+                  0x000000         0x48 build/default/production/newmainXC16.o
  .debug_pubnames
-                  0x00005f         0x64 build/default/production/inc/serial/serial.o
+                  0x000048         0x64 build/default/production/inc/serial/serial.o
  .debug_pubnames
-                  0x0000c3         0x3e build/default/production/inc/string_utilities/string_utilities.o
+                  0x0000ac         0x55 build/default/production/inc/string_utilities/string_utilities.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1687,10 +1687,9 @@ __c30_signature
                   0x00013a          0x6 /opt/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a(data_init_standard.o)
 
 .nbss               0x0800         0x70
- .nbss              0x0800         0x6e build/default/production/newmainXC16.o
+ .nbss              0x0800         0x70 build/default/production/inc/string_utilities/string_utilities.o
                     0x0800                  _buffer
                     0x0864                  _element
- .nbss              0x086e          0x2 build/default/production/inc/string_utilities/string_utilities.o
 
 .config_JTAGEN    0xf8000e          0x2
  .config_JTAGEN
@@ -1722,24 +1721,24 @@ __c30_signature
 .const              0x8298         0x32 load address 0x000298  
  .const             0x8298         0x32 build/default/production/newmainXC16.o
 
-.text             0x0002ca        0x2da
- .text            0x0002ca        0x10a build/default/production/newmainXC16.o
+.text             0x0002ca        0x31a
+ .text            0x0002ca        0x13c build/default/production/newmainXC16.o
                   0x0002ca                  _init_hw
                   0x0002e8                  _pll_config
                   0x0002f6                  _startup_flash
                   0x000304                  _main
- .text            0x0003d4         0xf4 build/default/production/inc/string_utilities/string_utilities.o
-                  0x0003d4                  _replace_non_alphanumeric
-                  0x00044e                  _getElement
- .text            0x0004c8         0xbe build/default/production/inc/serial/serial.o
-                  0x0004c8                  _serial_init
-                  0x0004dc                  _serial_putc
-                  0x0004f4                  _serial_puts
-                  0x000510                  _serial_getc
-                  0x000532                  _serial_putint
- .text            0x000586         0x1e build/default/production/delays.o
-                  0x000586                  __delay_us
-                  0x000596                  __delay_ms
+ .text            0x000406        0x102 build/default/production/inc/string_utilities/string_utilities.o
+                  0x000406                  _replace_non_alphanumeric
+                  0x000480                  _getElement
+ .text            0x000508         0xbe build/default/production/inc/serial/serial.o
+                  0x000508                  _serial_init
+                  0x00051c                  _serial_putc
+                  0x000534                  _serial_puts
+                  0x000550                  _serial_getc
+                  0x000572                  _serial_putint
+ .text            0x0005c6         0x1e build/default/production/delays.o
+                  0x0005c6                  __delay_us
+                  0x0005d6                  __delay_ms
 
-.dinit            0x0005a4          0xe
- .dinit           0x0005a4          0xe data_init
+.dinit            0x0005e4          0x8
+ .dinit           0x0005e4          0x8 data_init

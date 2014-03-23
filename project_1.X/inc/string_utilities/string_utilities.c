@@ -1,5 +1,9 @@
 #include "string_utilities.h"
 
+char buffer[BUFF_LENGTH];
+
+char element[ELEMENT_LENGTH];
+
 void replace_non_alphanumeric(char *start, int number_of_bytes, char replace_with)
 {
     int i=0;
@@ -13,9 +17,10 @@ void replace_non_alphanumeric(char *start, int number_of_bytes, char replace_wit
     }
 }
 
-void getElement(char *src, char *dest, int argument, int src_length)
+int getElement(char *src, char *dest, int argument)
 {
     static char *ptr;
+    char *dest_start = dest;
     *dest = '\0';
     if(argument == RESET)
     {
@@ -25,9 +30,9 @@ void getElement(char *src, char *dest, int argument, int src_length)
     while(*ptr == '\0')
     {
         ptr++;
-        if( ptr-src > src_length )
+        if( ptr-src > BUFF_LENGTH )
         {
-            return;
+            return -1;
         }
     }
     while(*ptr != '\0')
@@ -35,10 +40,11 @@ void getElement(char *src, char *dest, int argument, int src_length)
         *dest = *ptr;
         dest++;
         ptr++;
-        if( ptr-src > src_length )
+        if( (ptr-src > BUFF_LENGTH) || (dest - dest_start)>=ELEMENT_LENGTH)
         {
-            return;
+            return -2;
         }
     }
     *dest = '\0';
+    return 0;
 }

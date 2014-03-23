@@ -12,11 +12,9 @@
 #include "inc/string_utilities/string_utilities.h"
 
 extern void _delay_ms(unsigned int);
-#define BUFF_LENGTH 100
-char buffer[BUFF_LENGTH];
 
-#define ELEMENT_LENGTH 10
-char element[ELEMENT_LENGTH];
+extern char * buffer;
+extern char * element;
 
 void init_hw(void)
 {
@@ -40,20 +38,20 @@ void startup_flash(void)
      LATBbits.LATB4 = 0;
 }
 
-
 int main(void)
 {
     pll_config();
     init_hw();
     startup_flash();
     serial_init(BAUD_19200);
-    
+
     int buffer_index=0;
     int command_rcvd=0;
-    
+    int element_present = -1;
+
     while(1)
     {
-        
+
         buffer[buffer_index] = serial_getc();
         serial_putc(buffer[buffer_index]);
         if(buffer[buffer_index] == '\b')                 //check for backspace character
@@ -63,7 +61,7 @@ int main(void)
             buffer_index-=2;
             if(buffer_index < 0)
             {
-                buffer_index = 0;
+                buffer_index = -1;
             }
         }
         if(buffer[buffer_index] == '\r')             //check for enter key pressed
@@ -79,22 +77,24 @@ int main(void)
             serial_puts("\n\rCommand Received: ");
             serial_puts(buffer);
             serial_puts("\n\r");
+            element_present = getElement(buffer, element, RESET);
+            if(element_present == 0)
+            {
+                serial_puts("\n\rELEMENT1: ");
+                serial_puts(element);
+                serial_puts("\n\r");
 
-            getElement(buffer, element, RESET, BUFF_LENGTH);
-            serial_puts("\n\rELEMENT1: ");
-            serial_puts(element);
-            serial_puts("\n\r");
-
-            getElement(buffer, element, NEXT, BUFF_LENGTH);
-            serial_puts("\n\rELEMENT2: ");
-            serial_puts(element);
-            serial_puts("\n\r");
-
+            }
+            element_present = getElement(buffer, element, NEXT);
+            if(element_present == 0)
+            {
+                serial_puts("\n\rELEMENT2: ");
+                serial_puts(element);
+                serial_puts("\n\r");
+            }
 
 
-
-
-            while(buffer_index>=0)
+            while(buffer_index>=0)          //erase current command
             {
                 buffer[buffer_index--]='\0';
             }
